@@ -1,14 +1,14 @@
 {
-  "name": "memoryoracle_server",
+  "name": "memoryoracle_webui",
   "version": "0.0.0",
-  "description": "MemoryOracle server",
+  "description": "MemoryOracle webui",
   "main": "none",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MemoryOracle/memoryoracle_server.git"
+    "url": "git+https://github.com/MemoryOracle/memoryoracle_webui.git"
   },
   "keywords": [
     "debug"
@@ -16,14 +16,13 @@
   "author": "Daniel Noland",
   "license": "LGPL-3.0",
   "bugs": {
-    "url": "https://github.com/MemoryOracle/memoryoracle_server/issues"
+    "url": "https://github.com/MemoryOracle/memoryoracle_webui/issues"
   },
-  "homepage": "https://github.com/MemoryOracle/memoryoracle_server#readme",
+  "homepage": "https://github.com/MemoryOracle/memoryoracle_webui#readme",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-nodeunit": "^0.4.1",
-    "grunt-contrib-uglify": "^0.9.1",
     "gulp": "^3.9.0",
     "gulp-traceur": "^0.17.1",
     "gulp-uglify": "^1.2.0",

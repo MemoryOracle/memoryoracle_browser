@@ -2,9 +2,9 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var gulp = require('stream-combiner2');
 
-projectDir = "memoryoracle_server";
+projectDir = "memoryoracle_webui";
 
-sourceDir = ""
+sourceDir = "";
 
 gulp.task('default', function() {
    process.stdout.write("hello, world\n");
