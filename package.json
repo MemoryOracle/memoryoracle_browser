@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "materialize-css": "^0.96.1",
+    "react": "^0.13.3",
     "requirejs": "^2.1.19"
   }
 }
