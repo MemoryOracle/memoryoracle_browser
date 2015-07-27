@@ -1,9 +1,0 @@
-sass: 
-   - pipe: [
-      [gulp.src, "${./**/*.sass}"],
-      [sass],
-      [gulp.dest, "${../css}"]
-      ]
-   - depends: [
-      javascript,
-      ]
