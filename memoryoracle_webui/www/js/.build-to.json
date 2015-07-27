@@ -1,0 +1,11 @@
+{
+   "javascript": {
+      "src": "**/*.js",
+      "pipe": [
+         ["sourcemaps.init", "none"],
+         ["traceur", "none"],
+         ["sourcemaps.write", "none"]
+      ],
+      "dest": "."
+   }
+}

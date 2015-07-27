@@ -1,0 +1,10 @@
+javascript: 
+   - gulp: 
+      - .src: ["**/*.js"]
+   - gulp-sourcemaps:
+      - .init
+   - gulp-traceur
+   - gulp-sourcemaps:
+      - .write
+   - gulp:
+      - .src: ["."]
