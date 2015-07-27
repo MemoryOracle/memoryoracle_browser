@@ -38,6 +38,7 @@
     "vinyl-paths": "^1.0.0"
   },
   "dependencies": {
+    "jquery": "^2.1.4",
     "materialize-css": "^0.96.1",
     "react": "^0.13.3",
     "requirejs": "^2.1.19"

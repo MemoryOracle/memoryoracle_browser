@@ -36,17 +36,32 @@ var TASKS = {
       return gulp.src(DEST, {read: false})
          .pipe(vinyl_paths(del));
    },
-   javascript: function() {
+   react: function() {
       var RELPATH = ["/js/jsx/", "**/*.jsx"];
       var SOURCE = GLOBAL_SOURCE + RELPATH[0] + RELPATH[1];
       var DEST = GLOBAL_DEST + RELPATH[0];
       return gulp.src(SOURCE)
          .pipe(plumber())
          .pipe(watch(SOURCE))
-         .pipe(debug({title: TASKS.react}))
+         .pipe(debug({title: "react"}))
          .pipe(react({harmony: true, target: TARGET}))
          .pipe(sourcemaps.init())
          // .pipe(uglify())
+         .pipe(sourcemaps.write())
+         .pipe(plumber.stop())
+         .pipe(gulp.dest(DEST));
+   },
+   javascript: function() {
+      var RELPATH = ["/js/", "**/*.js"];
+      var SOURCE = GLOBAL_SOURCE + RELPATH[0] + RELPATH[1];
+      var DEST = GLOBAL_DEST + RELPATH[0];
+      return gulp.src([traceur.RUNTIME_PATH, SOURCE])
+         .pipe(plumber())
+         .pipe(watch(SOURCE))
+         .pipe(debug({title: "javascript"}))
+         .pipe(sourcemaps.init())
+         .pipe(traceur())
+         .pipe(uglify())
          .pipe(sourcemaps.write())
          .pipe(plumber.stop())
          .pipe(gulp.dest(DEST));
@@ -58,7 +73,7 @@ var TASKS = {
       return gulp.src(SOURCE)
          .pipe(plumber())
          .pipe(watch(SOURCE))
-         .pipe(debug({title: TASKS.html}))
+         .pipe(debug({title: "html"}))
          .pipe(sourcemaps.init())
          .pipe(sourcemaps.write())
          .pipe(plumber.stop())
@@ -71,7 +86,7 @@ var TASKS = {
       return gulp.src(SOURCE)
          .pipe(plumber())
          .pipe(watch(SOURCE))
-         .pipe(debug({title: TASKS.libraries}))
+         .pipe(debug({title: "libraries"}))
          .pipe(sourcemaps.init())
          .pipe(uglify())
          .pipe(sourcemaps.write())
@@ -84,11 +99,8 @@ function build_in_phases() {
    for (var i = 0; i < BUILD_PHASES.length; i++) {
       for (var j in BUILD_PHASES[i]) {
          if( i == 0 ){
-            console.log(BUILD_PHASES[i][j]);
             gulp.task(BUILD_PHASES[i][j], TASKS[BUILD_PHASES[i][j]]);
          } else {
-            console.log(BUILD_PHASES[i][j]);
-            console.log(BUILD_PHASES[i-1]);
             gulp.task(BUILD_PHASES[i][j], BUILD_PHASES[i - 1], TASKS[BUILD_PHASES[i][j]]);
          }
       }
@@ -96,5 +108,4 @@ function build_in_phases() {
 }
 
 build_in_phases();
-console.log(BUILD_PHASES.slice(-1)[0]);
 gulp.task('default', BUILD_PHASES.slice(-1)[0]);
