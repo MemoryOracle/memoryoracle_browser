@@ -1,6 +1,7 @@
+/* @flow */
 define([
       "react"
-], (React) => {
+], function(React) {
    this.initialize = () => {
       React.render(
          <h1>Hello, world</h1>,

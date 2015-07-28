@@ -1,0 +1,10 @@
+[ignore]
+
+[include]
+
+[libs]
+../lib/requirejs/require.js
+
+[options]
+traces=15
+strip_root=true

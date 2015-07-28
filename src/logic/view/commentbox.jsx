@@ -1,11 +1,12 @@
-"use strict";
+/* @flow */
 define([
       'react',
       'jquery',
 ], 
-(React, $) => {
-   this.initialize = () => {
-      var renderData = {
+function(React, $) {
+   "use strict";
+   this.initialize = function(): void {
+      var renderData: Object = {
          comments: [
             {key: 0, author: "Daniel Noland", text: "I am the best!"},
             {key: 1, author: "Shawn Noland", text: "I am really confused!"}
